@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hassan Ahmad — AI/ML Engineer</title>
+<meta name="description" content="AI/ML Engineer building production agentic AI systems — multi-agent backends, Agentic RAG, observable LLM services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3ede1;
+    --paper-2:#ece3d2;
+    --ink:#1b1916;
+    --ink-soft:#4a463f;
+    --muted:#8a8377;
+    --accent:#d6492a;
+    --accent-2:#1f5c4d;
+    --line:#d6cdba;
+    --card:#f8f3e9;
+    --shadow:18px 18px 0 rgba(27,25,22,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Hanken Grotesk',sans-serif;
+    font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(rgba(27,25,22,.025) 1px,transparent 1px);
+    background-size:5px 5px;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Fraunces',serif}
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,237,225,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .logo .dot{width:11px;height:11px;background:var(--accent);border-radius:50%;display:inline-block}
+  .nav-links{display:flex;gap:30px;font-size:14.5px;font-weight:500}
+  .nav-links a{color:var(--ink-soft);transition:color .2s;position:relative}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .resume-btn{border:1.5px solid var(--ink);padding:9px 18px;border-radius:50px;font-weight:600;font-size:14px;transition:all .2s}
+  .resume-btn:hover{background:var(--ink);color:var(--paper)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  .hero{padding:90px 0 70px;position:relative}
+  .hero-photo{
+    width:150px;height:150px;border-radius:50%;
+    object-fit:cover;border:4px solid var(--accent);
+    box-shadow:8px 8px 0 rgba(27,25,22,.08);
+    margin-bottom:26px;display:block;
+  }
+  .avail{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--accent-2);
+    background:rgba(31,92,77,.08);border:1px solid rgba(31,92,77,.25);padding:7px 15px;border-radius:50px;margin-bottom:30px}
+  .avail .pulse{width:8px;height:8px;background:var(--accent-2);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(44px,8vw,90px);line-height:.98;letter-spacing:-.03em;max-width:13ch}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero p.lead{font-size:20px;color:var(--ink-soft);max-width:60ch;margin-top:26px}
+  .current{margin-top:22px;font-size:15px;color:var(--muted)}
+  .current strong{color:var(--ink)}
+  .current a{color:var(--accent);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:6px 13px;background:var(--card);border:1px solid var(--line);border-radius:6px;color:var(--ink-soft)}
+  .cta-row{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .btn-primary{background:var(--ink);color:var(--paper);padding:14px 26px;border-radius:50px;font-weight:600;font-size:15px;transition:transform .2s,background .2s}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--accent)}
+  .btn-ghost{padding:14px 26px;border:1.5px solid var(--ink);border-radius:50px;font-weight:600;font-size:15px;transition:all .2s}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:70px}
+  .stat{background:var(--paper);padding:26px 22px;text-align:center}
+  .stat .num{font-family:'Fraunces',serif;font-size:40px;font-weight:600;color:var(--accent);line-height:1}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:8px}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  section{padding:80px 0;scroll-margin-top:80px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:.05em;margin-bottom:14px}
+  .sec-title{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.02}
+  .sec-sub{font-size:18px;color:var(--ink-soft);max-width:62ch;margin-top:16px}
+
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 30px}
+  .filter{font-size:14px;font-weight:600;padding:9px 17px;border:1.5px solid var(--line);border-radius:50px;background:var(--card);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+  .filter .count{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted)}
+  .filter:hover{border-color:var(--ink)}
+  .filter.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .filter.active .count{color:var(--paper);opacity:.7}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+  .proj:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .proj .tags-top{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .badge{font-size:11.5px;font-weight:700;font-family:'JetBrains Mono',monospace;padding:4px 10px;border-radius:5px;text-transform:uppercase;letter-spacing:.03em}
+  .badge.live{background:rgba(31,92,77,.12);color:var(--accent-2)}
+  .badge.prog{background:rgba(214,73,42,.12);color:var(--accent)}
+  .badge.cat{background:var(--paper-2);color:var(--ink-soft)}
+  .proj h3{font-family:'Fraunces',serif;font-size:25px;font-weight:600;margin-bottom:10px}
+  .proj p{font-size:15px;color:var(--ink-soft);margin-bottom:16px}
+  .stack{display:flex;flex-wrap:wrap;gap:6px}
+  .stack span{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:4px 9px;background:var(--paper);border:1px solid var(--line);border-radius:5px;color:var(--muted)}
+  .proj.hidden{display:none}
+
+  .build-cta{margin-top:40px;background:var(--ink);color:var(--paper);border-radius:18px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .build-cta h3{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin-bottom:8px}
+  .build-cta p{color:#cbc4b6;font-size:16px;max-width:46ch}
+  .build-cta .btn-primary{background:var(--accent);white-space:nowrap}
+  .build-cta .btn-primary:hover{background:var(--paper);color:var(--ink)}
+
+  .exp{border-left:2px solid var(--line);padding-left:32px;position:relative;margin-bottom:40px}
+  .exp::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:3px solid var(--paper)}
+  .exp .when{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);display:flex;gap:12px;align-items:center;margin-bottom:8px}
+  .exp .when .type{background:var(--paper-2);padding:2px 9px;border-radius:5px;color:var(--ink-soft)}
+  .exp h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600}
+  .exp .place{color:var(--accent-2);font-weight:600;font-size:15px;margin:4px 0 14px}
+  .exp ul{list-style:none;margin:14px 0}
+  .exp li{font-size:15px;color:var(--ink-soft);padding-left:22px;position:relative;margin-bottom:9px}
+  .exp li::before{content:"\2192";position:absolute;left:0;color:var(--accent)}
+
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  @media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
+  .skill{background:var(--paper);padding:30px}
+  .skill .no{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent)}
+  .skill h3{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:10px 0 16px}
+  .skill .items{display:flex;flex-wrap:wrap;gap:7px}
+  .skill .items span{font-size:13px;padding:5px 10px;background:var(--card);border:1px solid var(--line);border-radius:6px;color:var(--ink-soft)}
+
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+  .about-grid p{font-size:18px;color:var(--ink-soft);margin-bottom:20px}
+  .about-grid p a{color:var(--accent);font-weight:600}
+  .about-photo{
+    width:100%;max-width:320px;border-radius:18px;
+    object-fit:cover;border:1px solid var(--line);
+    box-shadow:var(--shadow);margin-bottom:18px;display:block;
+  }
+  .info-cards{display:grid;gap:14px}
+  .icard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .icard .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .icard .v{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-top:4px}
+  .icard .s{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+
+  .pub{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px;margin-bottom:18px}
+  .pub .top{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+  .pub .pno{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent)}
+  .pub h3{font-family:'Fraunces',serif;font-size:23px;font-weight:600;line-height:1.2;margin-bottom:10px}
+  .pub .meta{font-size:14px;color:var(--muted);margin-bottom:10px}
+  .pub a.read{color:var(--accent);font-weight:600;font-size:14.5px}
+
+  #contact{background:var(--ink);color:var(--paper);border-radius:24px;margin:40px 0;padding:60px 50px}
+  #contact .eyebrow{color:#e8a48f}
+  #contact .sec-title{color:var(--paper)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:36px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  .clink{display:block;padding:16px 0;border-bottom:1px solid #3a352f;transition:padding .2s}
+  .clink:hover{padding-left:10px}
+  .clink .ck{font-size:13px;color:#9a9285}
+  .clink .cv{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--paper)}
+  .open-list{margin-top:24px}
+  .open-list li{list-style:none;color:#cbc4b6;font-size:15px;padding:7px 0;display:flex;gap:10px}
+  .open-list li::before{content:"\2726";color:var(--accent)}
+  .form input,.form textarea{width:100%;background:#241f1a;border:1px solid #3a352f;border-radius:10px;padding:13px 15px;color:var(--paper);font-family:inherit;font-size:15px;margin-bottom:12px}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--accent)}
+  .form button{width:100%;background:var(--accent);color:var(--paper);border:none;padding:15px;border-radius:10px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s}
+  .form button:hover{background:#e8a48f;color:var(--ink)}
+
+  footer{padding:50px 0;border-top:1px solid var(--line)}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  .foot-in .logo{font-size:19px}
+  .foot-links{display:flex;gap:18px;font-size:14px;color:var(--ink-soft)}
+  .foot-links a:hover{color:var(--accent)}
+  .copy{font-size:13px;color:var(--muted);margin-top:30px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><span class="dot"></span>Hassan Ahmad</a>
+    <div class="nav-links">
+      <a href="#projects">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="resume.pdf" class="resume-btn">Resume</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <!-- YOUR PHOTO (hero) -->
+  <img src="1.jpg" alt="Hassan Ahmad" class="hero-photo">
+  <span class="avail"><span class="pulse"></span>Available for new projects</span>
+  <h1 class="serif">Building production <em>agentic AI</em> systems.</h1>
+  <p class="lead">I'm <strong>Hassan Ahmad</strong> — an AI/ML engineer shipping multi-agent backends, Agentic RAG, and observable LLM services. Peer-reviewed researcher in low-resource NLP.</p>
+  <p class="current">Currently <strong>AI/ML Engineer</strong> @ <a href="#">YourCompany.ai</a> &middot; part of a data analytics group</p>
+  <div class="chips">
+    <span class="chip">FastAPI</span><span class="chip">Gemini</span><span class="chip">LangGraph</span><span class="chip">Qdrant</span><span class="chip">Cloud Run</span>
+  </div>
+  <div class="cta-row">
+    <a href="#projects" class="btn-primary">See selected work</a>
+    <a href="resume.pdf" class="btn-ghost" download>Download Resume</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">3+</div><div class="lbl">Years shipping</div></div>
+    <div class="stat"><div class="num">12+</div><div class="lbl">Projects</div></div>
+    <div class="stat"><div class="num">3.6</div><div class="lbl">GPA / 4.0</div></div>
+    <div class="stat"><div class="num">2</div><div class="lbl">Peer-reviewed</div></div>
+  </div>
+</header>
+
+<section id="projects" class="wrap reveal">
+  <div class="eyebrow mono">01 / Selected Work</div>
+  <h2 class="sec-title">Featured projects.</h2>
+  <p class="sec-sub">Production AI, client web work, peer-reviewed research, and open-source dev tools &mdash; filter by what you're here for.</p>
+  <div class="filters" id="filters">
+    <div class="filter active" data-f="all">All</div>
+    <div class="filter" data-f="production">Production <span class="count">4</span></div>
+    <div class="filter" data-f="web">Client Web <span class="count">4</span></div>
+    <div class="filter" data-f="ml">Client ML <span class="count">2</span></div>
+    <div class="filter" data-f="research">Research <span class="count">3</span></div>
+    <div class="filter" data-f="oss">Open Source <span class="count">6</span></div>
+  </div>
+  <div class="grid" id="grid">
+    <article class="proj" data-cat="production">
+      <div class="tags-top"><span class="badge live">Live</span><span class="badge cat">Production</span></div>
+      <h3 class="serif">Enroll Assistant AI</h3>
+      <p>Conversational enrolment assistant for higher-ed. Five role-scoped agents under a LangGraph supervisor &mdash; replacing a static contact form with a stateful, observable assistant.</p>
+      <div class="stack"><span>FastAPI</span><span>LangGraph</span><span>Gemini 2.5 Flash</span><span>Firebase Auth</span><span>+5</span></div>
+    </article>
+    <article class="proj" data-cat="production">
+      <div class="tags-top"><span class="badge live">Live</span><span class="badge cat">Production</span></div>
+      <h3 class="serif">Benefits Review</h3>
+      <p>Public eligibility assistant. Natural-language input parsed by an LLM, district lookup served by Typesense, FastAPI returns the verdict with citations.</p>
+      <div class="stack"><span>FastAPI</span><span>Gemini 2.5 Flash</span><span>Typesense</span><span>Firestore</span><span>+2</span></div>
+    </article>
+    <article class="proj" data-cat="production research">
+      <div class="tags-top"><span class="badge prog">In progress</span><span class="badge cat">Production</span></div>
+      <h3 class="serif">CaseSync</h3>
+      <p>Agentic RAG over court rulings. Bounded ReAct loop, hybrid semantic-plus-fuzzy search, and a verifier pass enforcing citations on every answer. Private beta with a legal-research firm.</p>
+      <div class="stack"><span>Gemini 2.5 Flash</span><span>gemini-embedding-001</span><span>Qdrant</span><span>LangGraph</span><span>+3</span></div>
+    </article>
+    <article class="proj" data-cat="production web">
+      <div class="tags-top"><span class="badge live">Live</span><span class="badge cat">Production</span></div>
+      <h3 class="serif">Benefits Calculator</h3>
+      <p>Public-facing calculator paired with the Benefits Review backend. Clean, fast Vercel deployment.</p>
+      <div class="stack"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Vercel</span></div>
+    </article>
+    <article class="proj" data-cat="ml">
+      <div class="tags-top"><span class="badge live">Live</span><span class="badge cat">Client ML</span></div>
+      <h3 class="serif">Exam Prep Tutor</h3>
+      <p>AI-powered test-prep tool. Fine-tuned a model on a digitised question bank with rationales, plus an interactive chatbot for review and practice.</p>
+      <div class="stack"><span>LangChain</span><span>OpenAI API</span><span>Vector DBs</span><span>NLP</span></div>
+    </article>
+    <article class="proj" data-cat="web oss">
+      <div class="tags-top"><span class="badge cat">Open Source</span></div>
+      <h3 class="serif">RAG Toolkit CLI</h3>
+      <p>Open-source command-line tool to bootstrap an Agentic RAG service &mdash; embeddings, vector store wiring, and a citation verifier in one command.</p>
+      <div class="stack"><span>Python</span><span>Qdrant</span><span>Typer</span><span>pytest</span></div>
+    </article>
+  </div>
+  <div class="build-cta">
+    <div>
+      <div class="eyebrow mono" style="color:#e8a48f">For clients &amp; freelance partners</div>
+      <h3 class="serif">Have something to build?</h3>
+      <p>Production AI backends, RAG systems, custom chatbots, or full-stack web apps. One-off, ongoing, or agency collaborations.</p>
+    </div>
+    <a href="#contact" class="btn-primary">Start a project</a>
+  </div>
+</section>
+
+<section id="experience" class="wrap reveal">
+  <div class="eyebrow mono">02 / Experience</div>
+  <h2 class="sec-title">Where I've shipped.</h2>
+  <div style="margin-top:44px">
+    <div class="exp">
+      <div class="when mono">Dec 2024 &mdash; Present <span class="type">Full-time</span></div>
+      <h3 class="serif">AI/ML Engineer</h3>
+      <div class="place">YourCompany.ai &middot; part of a data analytics group</div>
+      <p style="color:var(--ink-soft);font-size:15px">Shipping production AI backends across three flagship products: an enrolment assistant, a benefits reviewer, and an agentic legal RAG.</p>
+      <ul>
+        <li>Built a multi-agent FastAPI backend on LangGraph with five role-scoped agents (RBAC) under a supervisor graph, calling Gemini with context caching.</li>
+        <li>Shipped an Agentic RAG service &mdash; bounded ReAct loop, hybrid semantic+fuzzy search, gemini-embedding-001 in Qdrant, and a verifier pass that emits numbered citations.</li>
+        <li>Secured production APIs with API-key auth, rate limiting, and Pydantic validation; LangGraph checkpoints in Redis (Upstash); users in Firebase Auth + Firestore.</li>
+        <li>Instrumented end-to-end tracing in OpenTelemetry + Grafana Cloud + Langfuse with per-model cost tracking.</li>
+        <li>Wrote pytest suites and offline eval datasets; shipped all services as Docker containers on Cloud Run.</li>
+      </ul>
+      <div class="stack"><span>FastAPI</span><span>LangGraph</span><span>Gemini 2.5 Flash</span><span>Qdrant</span><span>Redis/Upstash</span><span>Firebase</span><span>Docker</span><span>Cloud Run</span></div>
+    </div>
+    <div class="exp">
+      <div class="when mono">May 2024 &mdash; Nov 2024 <span class="type">Remote</span></div>
+      <h3 class="serif">AI/ML Engineer (Remote)</h3>
+      <div class="place">Remote AI Startup &middot; USA</div>
+      <p style="color:var(--ink-soft);font-size:15px">Built an AI-powered exam-preparation tool for students.</p>
+      <ul>
+        <li>Led creation of an NLP dataset digitised from test books &mdash; questions, answers, and rationales.</li>
+        <li>Fine-tuned a language model with LangChain, the OpenAI API, and vector databases.</li>
+        <li>Engineered an interactive chatbot to let students review answers and practice new questions.</li>
+      </ul>
+      <div class="stack"><span>LangChain</span><span>OpenAI API</span><span>Vector Databases</span><span>NLP</span><span>EdTech</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="wrap reveal">
+  <div class="eyebrow mono">03 / Skills</div>
+  <h2 class="sec-title">Production-grade AI/ML stack.</h2>
+  <p class="sec-sub">The tools I reach for to ship reliable, observable AI systems.</p>
+  <div class="skill-grid" style="margin-top:36px">
+    <div class="skill">
+      <div class="no mono">01</div><h3 class="serif">AI / LLM Engineering</h3>
+      <div class="items"><span>Agentic RAG</span><span>Multi-agent systems</span><span>LangGraph</span><span>LangChain</span><span>ReAct loops</span><span>Supervisor graphs</span><span>RBAC</span><span>HyDE</span><span>Tool-calling</span><span>Fine-tuning</span></div>
+    </div>
+    <div class="skill">
+      <div class="no mono">02</div><h3 class="serif">LLM Models &amp; APIs</h3>
+      <div class="items"><span>Gemini 2.5 Flash</span><span>google-genai SDK</span><span>gemini-embedding-001</span><span>OpenAI</span><span>Groq</span><span>Llama 3.1</span><span>HuggingFace</span><span>Transfer learning</span></div>
+    </div>
+    <div class="skill">
+      <div class="no mono">03</div><h3 class="serif">Backend Engineering</h3>
+      <div class="items"><span>Python</span><span>FastAPI</span><span>Pydantic</span><span>httpx</span><span>Server-Sent Events</span><span>pytest</span><span>Algorithms &amp; DS</span></div>
+    </div>
+    <div class="skill">
+      <div class="no mono">04</div><h3 class="serif">Retrieval &amp; Persistence</h3>
+      <div class="items"><span>Qdrant</span><span>Pinecone</span><span>ChromaDB</span><span>Typesense</span><span>Hybrid search</span><span>Redis/Upstash</span><span>Firestore</span><span>Firebase Auth</span></div>
+    </div>
+    <div class="skill">
+      <div class="no mono">05</div><h3 class="serif">Cloud &amp; Containers</h3>
+      <div class="items"><span>Google Cloud Run</span><span>Docker</span><span>Google Cloud Platform</span></div>
+    </div>
+    <div class="skill">
+      <div class="no mono">06</div><h3 class="serif">Observability &amp; Eval</h3>
+      <div class="items"><span>OpenTelemetry</span><span>Grafana Cloud</span><span>Langfuse</span><span>Component versioning</span><span>Cost tracking</span><span>Eval datasets</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="wrap reveal">
+  <div class="eyebrow mono">04 / About</div>
+  <h2 class="sec-title">Engineer and researcher.</h2>
+  <div class="about-grid" style="margin-top:40px">
+    <div>
+      <p>I build production-grade backends for multi-agent systems and Agentic RAG &mdash; observable LLM services on FastAPI, Gemini, LangGraph, and Qdrant, deployed to Cloud Run with end-to-end tracing and per-prompt cost tracking.</p>
+      <p>Peer-reviewed researcher in low-resource NLP &mdash; currently applying for fully funded graduate programs.</p>
+    </div>
+    <div>
+      <!-- YOUR PHOTO (about) - delete this line if you want hero-only like Hamad -->
+      <img src="photo.jpg" alt="Hassan Ahmad" class="about-photo">
+      <div class="info-cards">
+        <div class="icard"><div class="k mono">Academic</div><div class="v serif">BSc Software Engineering</div><div class="s">3.6 / 4.0 &mdash; Your University</div></div>
+        <div class="icard"><div class="k mono">Published</div><div class="v serif">Journal &middot; 2024</div><div class="s">Low-resource NLG with transformers</div></div>
+        <div class="icard"><div class="k mono">Production</div><div class="v serif">3+ years</div><div class="s">Multi-agent &middot; RAG &middot; LLM APIs</div></div>
+        <div class="icard"><div class="k mono">Languages</div><div class="v serif">English &middot; + others</div><div class="s">Fluent / native</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research" class="wrap reveal">
+  <div class="eyebrow mono">05 / Research</div>
+  <h2 class="sec-title">Peer-reviewed publications.</h2>
+  <div style="margin-top:36px">
+    <div class="pub">
+      <div class="top"><span class="pno mono">P/01</span><span class="badge live">Published</span></div>
+      <h3 class="serif">Low-resource language text generation with pre-trained transformers</h3>
+      <div class="meta mono">Computer Science Journal &middot; Vol. 10 &middot; 2024 &middot; DOI: 10.0000/example</div>
+      <a href="#" class="read">Read paper &rarr;</a>
+    </div>
+    <div class="pub">
+      <div class="top"><span class="pno mono">P/02</span><span class="badge prog">In Review</span></div>
+      <h3 class="serif">A new dataset for machine and deep learning applications</h3>
+      <div class="meta mono">Under Review &middot; 2025</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <div class="eyebrow mono">06 / Contact</div>
+  <h2 class="sec-title">Let's build something together.</h2>
+  <p style="color:#cbc4b6;font-size:18px;margin-top:14px;max-width:60ch">AI/ML projects, research collaborations, or graduate opportunities &mdash; drop a line.</p>
+  <div class="contact-grid">
+    <div>
+      <a href="mailto:you@example.com" class="clink"><div class="ck">Email</div><div class="cv">you@example.com</div></a>
+      <a href="#" class="clink"><div class="ck">LinkedIn</div><div class="cv">linkedin.com/in/yourname</div></a>
+      <a href="#" class="clink"><div class="ck">GitHub</div><div class="cv">github.com/yourname</div></a>
+      <div class="open-list">
+        <li>Full-time &amp; part-time positions</li>
+        <li>Freelance &amp; contract work</li>
+        <li>Master's programs in AI / NLP / CS</li>
+      </div>
+    </div>
+    <div class="form">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Subject">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button onclick="alert('Hook this up to your email service (Formspree, Resend, etc.)')">Send message</button>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="foot-in">
+    <div>
+      <a href="#" class="logo"><span class="dot"></span>Hassan Ahmad</a>
+      <p style="color:var(--muted);font-size:14px;margin-top:8px;max-width:40ch">Production AI backends &mdash; multi-agent systems, Agentic RAG, observable LLM services.</p>
+    </div>
+    <div class="foot-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Work</a><a href="#research">Research</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="copy mono">&copy; 2026 Hassan Ahmad &middot; All rights reserved</div>
+</footer>
+
+<script>
+  const filters=document.querySelectorAll('.filter');
+  const projects=document.querySelectorAll('.proj');
+  filters.forEach(f=>f.addEventListener('click',()=>{
+    filters.forEach(x=>x.classList.remove('active'));
+    f.classList.add('active');
+    const cat=f.dataset.f;
+    projects.forEach(p=>{
+      const match = cat==='all' || p.dataset.cat.split(' ').includes(cat);
+      p.classList.toggle('hidden',!match);
+    });
+  }));
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
